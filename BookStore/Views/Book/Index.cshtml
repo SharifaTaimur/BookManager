@@ -1,0 +1,30 @@
+﻿@*@model IEnumerable<BookStore.Models.BookViewModel> *@
+@model BookStore.Models.BookViewModel
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Books</th>
+    </tr>
+
+    @foreach (var item in Model.ListOfBooks)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(m=>item.Title)
+                @Html.ActionLink("Edit", "Edit", new {  id=item.Id}) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
